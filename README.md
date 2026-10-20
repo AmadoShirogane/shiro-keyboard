@@ -14,7 +14,7 @@ Clavier natif Java, sans bibliothèque tierce à l’exécution, sans publicité
 
 ## Construire un APK
 
-Ce projet n’a PAS été compilé ou exécuté sur Android dans l’environnement de création : le SDK et Gradle sont absents et le téléchargement réseau était indisponible. Les contrôles de structure ne remplacent pas une compilation. Des corrections peuvent être nécessaires.
+Compilation `assembleDebug` et analyse `lintDebug` réussies dans GitHub Actions le 20 octobre 2026, commit d53b1130d7d385e611576d10ed9087b0a313b852. APK de test : https://github.com/AmadoShirogane/shiro-keyboard/actions/runs/39490006497/artifacts/12293904988. Le clavier n’a pas encore été exécuté sur appareil ni testé avec une vraie requête IA. Les validations manuelles ci-dessous restent nécessaires.
 
 ### Android Studio / ordinateur
 
