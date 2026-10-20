@@ -1,0 +1,3 @@
+<input-method xmlns:android="http://schemas.android.com/apk/res/android" android:settingsActivity="dev.shiro.keyboard.SettingsActivity" android:supportsSwitchingToNextInputMethod="true">
+ <subtype android:imeSubtypeLocale="fr_FR" android:languageTag="fr-FR" android:imeSubtypeMode="keyboard"/>
+</input-method>
