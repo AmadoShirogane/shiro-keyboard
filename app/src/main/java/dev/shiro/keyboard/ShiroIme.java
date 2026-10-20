@@ -33,7 +33,7 @@ public class ShiroIme extends InputMethodService {
     private Typeface face=Typeface.DEFAULT;
     private int dp(float n){return (int)(getResources().getDisplayMetrics().density*n+0.5f);}
     @Override public boolean onEvaluateFullscreenMode(){return false;}
-    @Override public View onCreateInputView(){root=new LinearLayout(this);root.setOrientation(1);draw();return root;}
+    @Override public View onCreateInputView(){root=new LinearLayout(this);root.setOrientation(LinearLayout.VERTICAL);draw();return root;}
     private void cancel(){generation++;if(pending!=null)pending.cancel(true);HttpURLConnection c=connection;if(c!=null)c.disconnect();busy=false;}
     @Override public void onStartInput(EditorInfo info, boolean restarting){super.onStartInput(info,restarting);cancel();draft.setLength(0);panel="";result="";status="";shift=false;symbols=false;
         int cls=info.inputType&InputType.TYPE_MASK_CLASS, variation=info.inputType&InputType.TYPE_MASK_VARIATION;
@@ -44,7 +44,7 @@ public class ShiroIme extends InputMethodService {
     }
     @Override public void onFinishInput(){cancel();draft.setLength(0);result="";panel="";super.onFinishInput();}
     @Override public void onDestroy(){cancel();worker.shutdownNow();super.onDestroy();}
-    private LinearLayout row(){LinearLayout r=new LinearLayout(this);r.setOrientation(0);r.setPadding(dp(2),dp(1),dp(2),dp(1));root.addView(r);return r;}
+    private LinearLayout row(){LinearLayout r=new LinearLayout(this);r.setOrientation(LinearLayout.HORIZONTAL);r.setPadding(dp(2),dp(1),dp(2),dp(1));root.addView(r);return r;}
     private void label(String s,int size){TextView t=new TextView(this);t.setText(s);t.setTextColor(fg);t.setTextSize(size);t.setPadding(dp(10),dp(5),dp(10),dp(5));root.addView(t);}
     private Button button(LinearLayout r,String s,float weight,Runnable task){Button b=new Button(this);b.setText(s);b.setAllCaps(false);b.setTextSize(15);b.setTextColor(fg);b.setTypeface(face);b.setMinWidth(0);b.setMinimumWidth(0);b.setPadding(0,0,0,0);
         GradientDrawable d=new GradientDrawable();d.setColor(keyColor);d.setCornerRadius(dp(9));b.setBackground(d);

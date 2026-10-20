@@ -15,7 +15,7 @@ public class SettingsActivity extends Activity {
     private EditText field(String title,String value) {text(title);EditText e=new EditText(this);e.setSingleLine(true);e.setTextColor(Color.WHITE);e.setText(value);page.addView(e);return e;}
     private void action(String title,Runnable r){Button b=new Button(this);b.setText(title);page.addView(b);b.setOnClickListener(v->r.run());}
     @Override public void onCreate(Bundle b){super.onCreate(b);
-        ScrollView sc=new ScrollView(this);page=new LinearLayout(this);page.setOrientation(1);page.setPadding(28,40,28,32);page.setBackgroundColor(Color.rgb(18,21,32));sc.addView(page);setContentView(sc);
+        ScrollView sc=new ScrollView(this);page=new LinearLayout(this);page.setOrientation(LinearLayout.VERTICAL);page.setPadding(28,40,28,32);page.setBackgroundColor(Color.rgb(18,21,32));sc.addView(page);setContentView(sc);
         text("SHIRO KEYBOARD · 0.1\nAZERTY • Web • IA");
         text("1. Active Shiro, puis sélectionne-le comme clavier. Android avertit que tout clavier peut lire la saisie. Shiro ne journalise pas tes frappes.");
         action("Activer le clavier",()->startActivity(new Intent(Settings.ACTION_INPUT_METHOD_SETTINGS)));
